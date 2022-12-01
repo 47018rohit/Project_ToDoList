@@ -1,0 +1,31 @@
+{
+  "name": "project_todolist",
+  "version": "1.0.0",
+  "description": "ToDoList",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakkanoodles/Project_ToDoList.git"
+  },
+  "author": "Rohit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hakkanoodles/Project_ToDoList/issues"
+  },
+  "homepage": "https://github.com/hakkanoodles/Project_ToDoList#readme",
+  "keywords": [],
+  "devDependencies": {
+    "css-loader": "^6.7.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "lodash": "^4.17.21"
+  }
+}

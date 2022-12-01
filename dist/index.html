@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">ToDoList</div>
+        <div class="main">
+            <div class="list-content">
+                
+                    <div class="list-title">
+                      <div>Work</div>
+                      <div>Priority</div>
+                      <div>Done</div>
+                    </div>
+                
+                <div class="list-container">
+                  <ul class="list"></ul>
+                </div>
+            </div>
+            <div class="form">
+                <form class="details">
+                    <div class ="boxOne" >
+                      <div class="six columns">
+                        <label for="workToDo">Work to do </label>
+                        <input type="text" name="workToDo" id="workToDo">
+                        <span>Please fill the Work</span>
+                      </div>
+                      <div class="six columns">
+                        <label for="priority">Priority Level</label>
+                        <select class="u-full-width" id="priority" name="priority">
+                          <option value="high">HIGH</option>
+                          <option value="medium">MEDIUM</option>
+                          <option value="low">LOW</option>
+                        </select>
+                      </div>
+                    </div>
+                  <div class="boxTwo">
+                    <button class="button-primary submit success alert" type="submit" value="Add work">Submit</button>
+                  </div>  
+                </form>
+                <button class="close">Close</button>
+            </div>
+            <button class="add-work"></button>
+            <button class="delete">x</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

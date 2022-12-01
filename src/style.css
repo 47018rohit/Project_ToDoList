@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+
+
+*{
+    margin:0px; padding: 0px;
+    font-family: 'Happy Monkey', cursive;
+}
+::-webkit-scrollbar{
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: gray;
+    border-radius: 1rem;
+}
+::-webkit-scrollbar-track{
+    background-color: black;
+    border-radius: 1rem;
+    margin-block: 1rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 500px;
+}
+.header{
+    height: 20vh; width: 100%;
+    background-color: yellow;
+}
+.main{
+    height: 80vh; width: 100%;
+    background-color: brown;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+}
+.list{
+    height: 90%;
+    overflow: auto;
+}
+.list-content{
+    width: 50%; min-width: 400px;
+    height: 600px; background-color: aliceblue;
+}
+.list-title, .list-name{
+    display: grid; 
+    grid-template-columns:repeat(1, 2fr) repeat(2, 1fr);
+    text-align: center; padding: 10px;
+    box-sizing: border-box; cursor: pointer;
+}
+.list-title{
+    height: 8%;
+    background-color: blueviolet;
+}
+.list-container{
+    height: 92%;
+}
+.work-name{
+    overflow: auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.work-name::-webkit-scrollbar{
+    height: 5px;
+}
+input[type = checkbox]{
+    height: 20px; width: 20px;
+    align-self: center;
+    margin-left: 50%;
+}
+.add-work, .delete{
+    position: fixed; margin-top: 500px; 
+    width: 40px; height: 40px; 
+    box-sizing: border-box; border-radius: 50%;border: none; 
+}
+.add-work{
+    transform: translateX(-150%);
+    background-image: url('./img/plus.png') ;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0px 2px 4px 1px rgb(0, 201, 246);
+}
+.add-work:hover{
+    transition: all ease 200ms;
+    background-image: url('./img/plus_hover.png');
+    box-shadow: 0px 2px 4px 1px rgb(1, 108, 63);
+}
+.delete{
+    transform: translateX(150%);
+    /* background-image: url('./img/plus.png') ; */
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0px 2px 4px 1px rgb(0, 201, 246);
+}
+.delete:hover{
+    transition: all ease 200ms;
+    /* background-image: url('./img/plus_hover.png'); */
+    box-shadow: 0px 2px 4px 1px rgb(1, 108, 63);
+}
+.form{
+    position: absolute;
+    background-color: wheat;
+    display: none;
+    padding: 20px; width: 300px; height: 400px;
+}
+.columns{
+    display: flex; flex-direction: column;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.columns>input{
+    height: 50px;
+}
+.active{
+    display: block;
+}
+span{
+    display: none;
+}
+.error{
+    display: block;
+}
