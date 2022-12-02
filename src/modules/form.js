@@ -1,3 +1,4 @@
+import { beTarask } from "date-fns/locale";
 import { remove, values } from "lodash";
 import { addWorkToList} from "./list.js"
 
@@ -7,7 +8,6 @@ const closeBtn = document.querySelector('.close');
 const addBtn = document.querySelector('.add-work');
 const form = document.querySelector('form');
 const listContainer = document.querySelector('.list');
-const deleteBtn = document.querySelector('.delete');
 
 
 // add button functionality
@@ -28,17 +28,26 @@ function closeForm(){
 }
 // end form display
 
-const LOCAL_STORAGE_LIST_KEY = 'task.lists'
-const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListsId'
-const lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) ||[];
-const selectedId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
+// const LOCAL_STORAGE_LIST_KEY = 'task.lists'
+// const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListsId'
+// const lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) ||[];
+// const selectedId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
 
-listContainer.addEventListener('click', e=>{
-    if(e.target.tagName.toLowerCase() === 'li'){
-        selectedId = e.target.dataset.listId
-        saveNrender();
-    }
-})
+// listContainer.addEventListener('click', e=>{
+//     if(e.target.tagName.toLowerCase() === 'li'){
+//         selectedId = e.target.dataset.listId
+//         saveNrender();
+//     }
+// })
+let lists;
+
+let listStore = localStorage.getItem('task');
+if(listStore == null){
+   lists = []
+}else{
+    lists = JSON.parse(listStore);
+}
+
 
 function callBackFunction(e){
     e.preventDefault();
@@ -73,7 +82,7 @@ function saveNrender(){
 }
 
 function save(){
-    localStorage.setItem(LOCAL_STORAGE_LIST_KEY ,JSON.stringify(lists))
+    localStorage.setItem("task" ,JSON.stringify(lists))
 }
 
 function render(){
@@ -86,19 +95,33 @@ function render(){
 
         const workName = document.createElement('div')
         const priorityLevel = document.createElement('div')
+        const check = document.createElement('div')
         const checkBox = document.createElement('input')
-        
+        const deleteBtn = document.createElement('button')
 
         workName.classList.add('work-name')
         priorityLevel.classList.add('work-priority')
+        deleteBtn.classList.add('delete')
+        check.classList.add('check')
         checkBox.setAttribute('type', 'checkbox')
 
         workName.innerHTML = list.name
         priorityLevel.innerHTML = list.priority
+        deleteBtn.innerHTML = "x"
 
-        listElement.append(workName,priorityLevel, checkBox);
+        check.append(checkBox)
+        listElement.append(workName,priorityLevel, check , deleteBtn);
 
         listContainer.append(listElement)
+
+        deleteBtn.addEventListener('click' ,(e)=> {
+                listElement.remove();
+                lists.splice(listElement,1)
+                // console.log(typeof(lists))
+                save();
+        })
+
+
     })
         
 }

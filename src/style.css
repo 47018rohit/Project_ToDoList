@@ -44,7 +44,7 @@
 }
 .list-title, .list-name{
     display: grid; 
-    grid-template-columns:repeat(1, 2fr) repeat(2, 1fr);
+    grid-template-columns:repeat(1, 4fr) repeat(2, 2fr) repeat(1, 1fr);
     text-align: center; padding: 10px;
     box-sizing: border-box; cursor: pointer;
 }
@@ -55,7 +55,7 @@
 .list-container{
     height: 92%;
 }
-.work-name{
+.work-name,.work-priority{
     overflow: auto;
     padding: 5px;
     box-sizing: border-box;
@@ -65,28 +65,29 @@
 }
 input[type = checkbox]{
     height: 20px; width: 20px;
+    margin-top: 5px;
     align-self: center;
-    margin-left: 50%;
 }
-.add-work, .delete{
+.add-work{
     position: fixed; margin-top: 500px; 
     width: 40px; height: 40px; 
     box-sizing: border-box; border-radius: 50%;border: none; 
-}
-.add-work{
-    transform: translateX(-150%);
+    transform: translateX(0%);
     background-image: url('./img/plus.png') ;
     background-position: center;
     background-size: cover;
     box-shadow: 0px 2px 4px 1px rgb(0, 201, 246);
 }
+
 .add-work:hover{
     transition: all ease 200ms;
     background-image: url('./img/plus_hover.png');
     box-shadow: 0px 2px 4px 1px rgb(1, 108, 63);
 }
 .delete{
-    transform: translateX(150%);
+    align-self: center;
+    width: 25px; height: 25px; 
+    box-sizing: border-box; border-radius: 50%;border: none;
     /* background-image: url('./img/plus.png') ; */
     background-position: center;
     background-size: cover;
@@ -112,7 +113,7 @@ input[type = checkbox]{
     height: 50px;
 }
 .active{
-    display: block;
+    display:block;
 }
 span{
     display: none;
